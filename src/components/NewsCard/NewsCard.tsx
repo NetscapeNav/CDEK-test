@@ -25,7 +25,7 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
 
     return (
         <div className={`news-container ${!showImages || !imageUrl ? 'no-images' : ''} ${displayImages === 'first' && index === 0 ? 'first-image' : ''}`}>
-            {showImages && imageUrl && <img className="news-image" src={imageUrl} alt={item.title}/>}
+            {showImages && imageUrl && <img className="news-image" src={imageUrl} alt={item.title} loading="lazy"/>}
             <div className="news-header-text">
                 <p className="news-date">{formattedDate}</p>
                 <h2 className="header">{item.title}</h2>
