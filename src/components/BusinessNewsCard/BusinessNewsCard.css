@@ -10,8 +10,8 @@
 }
 
 .news-image {
-    width: 180px;
-    height: 120px;
+    width: 240px;
+    height: 180px;
     object-fit: cover;
     border-radius: 12px;
     flex-shrink: 0;
