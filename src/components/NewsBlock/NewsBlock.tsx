@@ -45,7 +45,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
                     {data?.news.length === 0 ? (
                         <div className="placeholder">
                             <img src={TrollImg} alt="Новостей пока нет"/>
-                            <p>Новостей пока нет</p>
+                            <h2>Новостей пока нет</h2>
                         </div>
                     ) : (
                         data?.news.map((newsItem, index) => (

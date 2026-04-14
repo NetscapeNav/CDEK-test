@@ -30,11 +30,19 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
                 <p className="news-date">{formattedDate}</p>
                 <h2 className="header">{item.title}</h2>
                 <div className="info-container">
-                    <div className="tags-container">
+                    {displayImages === 'all' ? (
+                        <div className="tags-container">
+                            {item.rubrics.map(rubric => (
+                                <span className="tag" key={rubric.id}>{rubric.name}</span>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="business-tags">
                         {item.rubrics.map(rubric => (
-                            <span className="tag" key={rubric.id}>{rubric.name}</span>
+                             <span className="hashtag" key={rubric.id}>#{rubric.name.toLowerCase().replaceAll(' ', '_')} </span>
                         ))}
-                    </div>
+                        </div>
+                    )}
                     <div className="view-count">
                         <div className="counter">
                             <IconThumbUp/> {item.likeCount}

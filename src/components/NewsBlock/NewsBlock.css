@@ -8,10 +8,14 @@
     text-align: center;
 }
 
+.placeholder h2 {
+    color: black;
+}
+
 .news-header-title {
     color: black;
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 500;
     margin: 7px auto;
 }
 
@@ -38,4 +42,17 @@ hr {
     border: 0;
     background-color: transparent;
     color: #2e303a;
+}
+
+.button-icon:not(:disabled) {
+    cursor: pointer;
+}
+
+.button-icon:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.not-first-item .news-image {
+    display: none;
 }
