@@ -10,12 +10,12 @@ function App() {
             displayImages="all"
         />
         <NewsBlock
-            title="Рубрика Бизнес"
+            title="Бизнес"
             mode="short"
             displayImages="first"
         />
         <NewsBlock
-            title="Пустая рубрика"
+            title="Важные новости"
             mode="empty"
             displayImages="all"
         />
