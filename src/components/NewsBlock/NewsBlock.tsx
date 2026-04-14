@@ -38,7 +38,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
             <p className="news-header-date">{formattedDate}</p>
             <hr/>
             {error && <div className="error-message">Ошибка при загрузке новостей</div> }
-            {isLoading ? (
+            {isLoading && !data ? (
                 <Skeleton/>
             ) : (
                 <div className={`news-list ${displayImages === 'first' ? 'business-list' : '' }`}>
@@ -60,7 +60,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
                 </div>
             )}
 
-            {!isLoading && !error && data && data.totalPages > 1 && (
+            {!error && data && data.totalPages > 1 && (
                 <div className="buttons-container">
                     <button className="button-icon" onClick={handlePrev} disabled={page <= 1}>
                         <IconArrowLeft/>

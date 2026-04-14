@@ -1,5 +1,3 @@
-import './Skeleton.css';
-
 const SkeletonCard = () => (
     <div className="skeleton-card">
         <div className="skeleton-image"></div>
@@ -10,7 +8,7 @@ const SkeletonCard = () => (
 
 function Skeleton() {
     return (
-        <div className="news-block">
+        <div className="news-list">
             <SkeletonCard/>
             <SkeletonCard/>
             <SkeletonCard/>
