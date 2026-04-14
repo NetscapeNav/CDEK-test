@@ -1,4 +1,4 @@
-import './NewsCard.scss';
+import './NewsCard.css';
 import type { NewsItem } from "../../types/news";
 import { IconThumbUp, IconEye } from "@tabler/icons-react";
 
@@ -24,7 +24,7 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
     const formattedDate = `${dayAndMonth} ${hours}:${minutes}`;
 
     return (
-        <div className={`news-container ${!showImages || !imageUrl ? 'no-images' : ''}`}>
+        <div className={`news-container ${!showImages || !imageUrl ? 'no-images' : ''} ${displayImages === 'first' && index === 0 ? 'first-image' : ''}`}>
             {showImages && imageUrl && <img className="news-image" src={imageUrl} alt={item.title}/>}
             <div className="news-header-text">
                 <p className="news-date">{formattedDate}</p>

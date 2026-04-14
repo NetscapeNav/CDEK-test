@@ -1,4 +1,4 @@
-import './Skeleton.sass';
+import './Skeleton.css';
 
 const SkeletonCard = () => (
     <div className="skeleton-card">
