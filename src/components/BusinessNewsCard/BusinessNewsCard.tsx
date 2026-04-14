@@ -1,6 +1,8 @@
 import './BusinessNewsCard.css';
 import type { NewsItem } from "../../types/news";
-import { IconThumbUp, IconEye, IconStarFilled } from "@tabler/icons-react";
+import { IconStarFilled } from "@tabler/icons-react";
+import ViewsAndLikes from "../ViewsAndLikes/ViewsAndLikes.tsx";
+import {getFormattedDate, getImageUrl} from "../../utils/constats.ts";
 
 interface NewsCardProps {
     item: NewsItem;
@@ -8,28 +10,8 @@ interface NewsCardProps {
 }
 
 function BusinessNewsCard({item, index} : NewsCardProps) {
-    const rawImageUrl = item.cover?.images[0]?.m;
-    const imageUrl = rawImageUrl?.startsWith('/')
-        ? `http://1e14c3489fcb.vps.myjino.ru:5000${rawImageUrl}`
-        : rawImageUrl;
-
-    const dateObj = new Date(item.publishedAt);
-    const dayAndMonth = dateObj.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
-    const hours = String(dateObj.getHours()).padStart(2, '0');
-    const minutes = String(dateObj.getMinutes()).padStart(2, '0');
-
-    const formattedDate = `${dayAndMonth} ${hours}:${minutes}`;
-
-    const viewsAndLikes = (
-        <div className="view-count">
-            <div className="counter">
-                <IconThumbUp/> {item.likeCount}
-            </div>
-            <div className="counter">
-                <IconEye/> {item.viewCount}
-            </div>
-        </div>
-    );
+    const imageUrl = getImageUrl(item);
+    const formattedDate = getFormattedDate(item.publishedAt);
 
     return (
         <div className={`news-container ${!imageUrl ? 'no-images' : ''} ${index === 0 ? 'first-image' : ''}`}>
@@ -48,7 +30,7 @@ function BusinessNewsCard({item, index} : NewsCardProps) {
                     <span>&middot;</span>
                     <span className="news-date">{formattedDate}</span>
                     <span>&middot;</span>
-                    {viewsAndLikes}
+                    <ViewsAndLikes likes={item.likeCount} views={item.viewCount}/>
                 </div>
             </div>
         </div>

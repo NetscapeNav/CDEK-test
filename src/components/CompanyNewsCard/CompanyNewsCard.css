@@ -64,20 +64,6 @@
     background-color: #AAD7FB;
 }
 
-.view-count {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 7px;
-}
-
-.counter {
-    color: #85888E;
-    display: flex;
-    flex-direction: row;
-    gap: 3.5px;
-}
-
 @media (max-width: 1024px) {
     .news-container {
         flex-direction: column;
