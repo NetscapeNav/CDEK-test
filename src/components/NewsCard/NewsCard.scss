@@ -1,0 +1,49 @@
+.news-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.news-image {
+  max-width: 40%;
+}
+
+.news-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  color: black;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tags-container {
+  color: black;
+}
+
+.tag {
+  background-color: #c084fc;
+  border-radius: 7px;
+  padding: 7px;
+  font-size: 1em;
+}
+
+.view-count {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}
+
+.counter {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 3.5px;
+}

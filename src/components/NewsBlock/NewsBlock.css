@@ -1,0 +1,27 @@
+.news-block {
+    background-color: white;
+    border-radius: 14px;
+    padding: 21px;
+}
+
+.news-header-title {
+    color: black;
+    font-size: 2em;
+    font-family: Inter;
+    font-weight: 700;
+    margin: 7px auto;
+}
+
+hr {
+    color: #E2E2E4;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+}
+
+.buttons-container {
+    float: right;
+}
