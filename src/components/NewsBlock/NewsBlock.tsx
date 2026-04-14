@@ -52,7 +52,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
                             <a href={`/news/${newsItem.id}`} key={newsItem.id} className="news-link-wrapper">
                                 {displayImages === 'all'
                                     ? <CompanyNewsCard item={newsItem} index={index} />
-                                    : <BusinessNewsCard item={newsItem} index={index} />
+                                    : <BusinessNewsCard item={newsItem} index={index} page={page}/>
                                 }
                             </a>
                         ))

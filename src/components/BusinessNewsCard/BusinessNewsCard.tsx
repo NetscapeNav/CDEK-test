@@ -7,9 +7,10 @@ import {getFormattedDate, getImageUrl} from "../../utils/constats.ts";
 interface NewsCardProps {
     item: NewsItem;
     index: number;
+    page: number;
 }
 
-function BusinessNewsCard({item, index} : NewsCardProps) {
+function BusinessNewsCard({item, index, page} : NewsCardProps) {
     const imageUrl = getImageUrl(item);
     const formattedDate = getFormattedDate(item.publishedAt);
 
@@ -17,7 +18,7 @@ function BusinessNewsCard({item, index} : NewsCardProps) {
         <div className={`news-container ${!imageUrl ? 'no-images' : ''} ${index === 0 ? 'first-image' : ''}`}>
             {index === 0 && imageUrl && <img className="news-image" src={imageUrl} alt={item.title} loading="lazy"/>}
             <div className="news-header-text">
-                {index === 0 && (
+                {index === 0 && page === 1 && (
                     <div className="top-news-badge"><IconStarFilled size={18}/> Топ новость</div>
                 )}
                 <h2 className="header">{item.title}</h2>
