@@ -40,7 +40,7 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
             <div className="news-header-text">
                 {displayImages === 'all' && (<p className="news-date">{formattedDate}</p>)}
                 {displayImages === 'first' && index === 0 && (
-                    <div className="top-news-badge"><IconStarFilled/> Топ новость</div>
+                    <div className="top-news-badge"><IconStarFilled size={18}/> Топ новость</div>
                 )}
                 <h2 className="header">{item.title}</h2>
                 {displayImages === 'all' ? (
