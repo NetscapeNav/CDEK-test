@@ -51,10 +51,24 @@
 }
 
 .tag {
-  background-color: #c084fc;
   border-radius: 7px;
   padding: 4px 7px;
   font-size: 1em;
+}
+
+.tag-first {
+  background-color: #E2E2E4;
+}
+
+.tag-second {
+  background-color: #AAD7FB;
+}
+
+.business-tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
 }
 
 .hashtag {

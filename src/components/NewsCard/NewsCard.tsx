@@ -32,8 +32,10 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
                 <div className="info-container">
                     {displayImages === 'all' ? (
                         <div className="tags-container">
-                            {item.rubrics.map(rubric => (
-                                <span className="tag" key={rubric.id}>{rubric.name}</span>
+                            {item.rubrics.map((rubric, index) => (
+                                <span
+                                    className={`tag ${index === 0 ? 'tag-first' : ''} ${index === 1 ? 'tag-second' : ''}`}
+                                    key={rubric.id}>{rubric.name}</span>
                             ))}
                         </div>
                     ) : (
