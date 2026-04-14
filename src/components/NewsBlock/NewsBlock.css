@@ -25,3 +25,9 @@ hr {
 .buttons-container {
     float: right;
 }
+
+.button-icon {
+    border: 0;
+    background-color: transparent;
+    color: #2e303a;
+}

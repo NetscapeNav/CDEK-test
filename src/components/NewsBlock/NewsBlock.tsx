@@ -53,10 +53,10 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
 
             {!isLoading && !error && data && data.totalPages > 1 && (
                 <div className="buttons-container">
-                    <button onClick={handlePrev} disabled={page <= 1}>
+                    <button className="button-icon" onClick={handlePrev} disabled={page <= 1}>
                         <IconArrowLeft/>
                     </button>
-                    <button onClick={handleNext} disabled={page >= data?.totalPages}>
+                    <button className="button-icon" onClick={handleNext} disabled={page >= data?.totalPages}>
                         <IconArrowRight/>
                     </button>
                 </div>
