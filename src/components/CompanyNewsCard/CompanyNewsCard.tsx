@@ -41,7 +41,7 @@ function CompanyNewsCard({item, index} : NewsCardProps) {
                     <div className="tags-container">
                         {item.rubrics.map((rubric, index) => (
                             <span
-                                className={`tag ${index === 0 ? 'tag-first' : ''} ${index === 1 ? 'tag-second' : ''}`}
+                                className={`tag ${index % 2 === 0 ? 'tag-first' : 'tag-second'}`}
                                 key={rubric.id}>{rubric.name}</span>
                         ))}
                     </div>
