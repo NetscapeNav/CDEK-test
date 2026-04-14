@@ -59,11 +59,11 @@ hr {
     cursor: not-allowed;
 }
 
-.not-first-item .news-image {
-    display: none;
-}
-
 @media (max-width: 768px) {
+    .not-first-item .news-image {
+        display: none;
+    }
+
     .news-link-wrapper:not(:last-child) {
         border-bottom: 1px solid #E2E2E4;
         padding-bottom: 21px;

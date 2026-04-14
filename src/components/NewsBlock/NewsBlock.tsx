@@ -1,10 +1,11 @@
 import './NewsBlock.css';
-import NewsCard from "../NewsCard/NewsCard.tsx";
 import Skeleton from "../Skeleton/Skeletons.tsx";
 import {useNews} from "../../hooks/useNews.ts";
 import {useState} from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import TrollImg from '../../assets/pictures/troll.svg';
+import CompanyNewsCard from "../CompanyNewsCard/CompanyNewsCard.tsx";
+import BusinessNewsCard from "../BusinessNewsCard/BusinessNewsCard.tsx";
 
 interface NewsBlockProps {
     title: string;
@@ -50,7 +51,10 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
                     ) : (
                         data?.news.map((newsItem, index) => (
                             <a href={"/news/" + newsItem.id} key={newsItem.id} className="news-link-wrapper">
-                                <NewsCard key={newsItem.id} item={newsItem} displayImages={displayImages} index={index}/>
+                                {displayImages === 'all'
+                                    ? <CompanyNewsCard item={newsItem} index={index} />
+                                    : <BusinessNewsCard item={newsItem} index={index} />
+                                }
                             </a>
                         ))
                     )}
