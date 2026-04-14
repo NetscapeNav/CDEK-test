@@ -2,10 +2,3 @@
   display: grid;
   gap: 28px;
 }
-
-
-
-@media (prefers-color-scheme: dark) {
-  .app-container {
-  }
-}

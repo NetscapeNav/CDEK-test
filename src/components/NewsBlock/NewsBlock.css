@@ -19,6 +19,10 @@
     margin: 7px auto;
 }
 
+.news-header-date {
+    color: #85888E;
+}
+
 hr {
     border: 1px solid #E2E2E4;
 }
@@ -41,7 +45,9 @@ hr {
 
 .buttons-container {
     margin-top: 20px;
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .button-icon {
