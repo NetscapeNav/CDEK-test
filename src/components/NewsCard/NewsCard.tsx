@@ -1,6 +1,6 @@
 import './NewsCard.css';
 import type { NewsItem } from "../../types/news";
-import { IconThumbUp, IconEye } from "@tabler/icons-react";
+import { IconThumbUp, IconEye, IconStarFilled } from "@tabler/icons-react";
 
 interface NewsCardProps {
     item: NewsItem;
@@ -23,14 +23,28 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
 
     const formattedDate = `${dayAndMonth} ${hours}:${minutes}`;
 
+    const viewsAndLikes = (
+        <div className="view-count">
+            <div className="counter">
+                <IconThumbUp/> {item.likeCount}
+            </div>
+            <div className="counter">
+                <IconEye/> {item.viewCount}
+            </div>
+        </div>
+    );
+
     return (
         <div className={`news-container ${!showImages || !imageUrl ? 'no-images' : ''} ${displayImages === 'first' && index === 0 ? 'first-image' : ''}`}>
             {showImages && imageUrl && <img className="news-image" src={imageUrl} alt={item.title} loading="lazy"/>}
             <div className="news-header-text">
-                <p className="news-date">{formattedDate}</p>
+                {displayImages === 'all' && (<p className="news-date">{formattedDate}</p>)}
+                {displayImages === 'first' && index === 0 && (
+                    <div className="top-news-badge"><IconStarFilled/> Топ новость</div>
+                )}
                 <h2 className="header">{item.title}</h2>
-                <div className="info-container">
-                    {displayImages === 'all' ? (
+                {displayImages === 'all' ? (
+                    <div className="info-container">
                         <div className="tags-container">
                             {item.rubrics.map((rubric, index) => (
                                 <span
@@ -38,22 +52,21 @@ function NewsCard({item, displayImages, index} : NewsCardProps) {
                                     key={rubric.id}>{rubric.name}</span>
                             ))}
                         </div>
-                    ) : (
-                        <div className="business-tags">
-                        {item.rubrics.map(rubric => (
-                             <span className="hashtag" key={rubric.id}>#{rubric.name.toLowerCase().replaceAll(' ', '_')} </span>
-                        ))}
-                        </div>
-                    )}
-                    <div className="view-count">
-                        <div className="counter">
-                            <IconThumbUp/> {item.likeCount}
-                        </div>
-                        <div className="counter">
-                            <IconEye/> {item.viewCount}
-                        </div>
+                        {viewsAndLikes}
                     </div>
-                </div>
+                ) : (
+                    <div className="business-tags">
+                        {item.rubrics.map(rubric => (
+                            <span className="hashtag" key={rubric.id}>
+                                #{rubric.name.toLowerCase().replaceAll(' ', '_')}
+                            </span>
+                        ))}
+                        <span>&middot;</span>
+                        <span className="news-date">{formattedDate}</span>
+                        <span>&middot;</span>
+                        {viewsAndLikes}
+                    </div>
+                )}
             </div>
         </div>
     );

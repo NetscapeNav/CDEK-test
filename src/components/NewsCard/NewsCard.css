@@ -44,6 +44,17 @@
   justify-content: space-between;
 }
 
+.top-news-badge {
+  display: flex;
+  background-color: #FDDEAA;
+  color: #4F3709;
+  width: fit-content;
+  align-items: center;
+  border-radius: 100px;
+  padding: 4px 7px;
+  gap: 4px;
+}
+
 .tags-container {
   display: flex;
   color: black;

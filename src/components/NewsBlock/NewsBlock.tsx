@@ -40,7 +40,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
             {isLoading ? (
                 <Skeleton/>
             ) : (
-                <div className="news-list">
+                <div className={`news-list ${displayImages === 'first' ? 'business-list' : '' }`}>
                     {isLoading ? "Загрузка" : ""}
                     {data?.news.length === 0 ? (
                         <div className="placeholder">
