@@ -7,12 +7,11 @@ interface NewsCardProps {
     index: number;
 }
 
-function CompanyNewsCard({item} : NewsCardProps) {
+function CompanyNewsCard({item, index} : NewsCardProps) {
     const rawImageUrl = item.cover?.images[0]?.m;
     const imageUrl = rawImageUrl?.startsWith('/')
         ? `http://1e14c3489fcb.vps.myjino.ru:5000${rawImageUrl}`
         : rawImageUrl;
-    console.log("Картинка:", item.title, imageUrl);
 
     const dateObj = new Date(item.publishedAt);
     const dayAndMonth = dateObj.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
@@ -33,7 +32,7 @@ function CompanyNewsCard({item} : NewsCardProps) {
     );
 
     return (
-        <div className={`news-container ${!imageUrl ? 'no-images' : ''}`}>
+        <div className={`news-container ${!imageUrl ? 'no-images' : ''} ${index > 0 ? 'not-first-item' : ''}`}>
             {imageUrl && <img className="news-image" src={imageUrl} alt={item.title} loading="lazy"/>}
             <div className="news-header-text">
                 <p className="news-date">{formattedDate}</p>

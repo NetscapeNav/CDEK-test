@@ -38,12 +38,6 @@
     font-weight: 400;
 }
 
-.info-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .top-news-badge {
     display: flex;
     background-color: #FDDEAA;
@@ -53,26 +47,6 @@
     border-radius: 100px;
     padding: 4px 7px;
     gap: 4px;
-}
-
-.tags-container {
-    display: flex;
-    color: black;
-    gap: 7px;
-}
-
-.tag {
-    border-radius: 7px;
-    padding: 4px 7px;
-    font-size: 1em;
-}
-
-.tag-first {
-    background-color: #E2E2E4;
-}
-
-.tag-second {
-    background-color: #AAD7FB;
 }
 
 .business-tags {
@@ -108,9 +82,5 @@
 
     .news-image {
         width: 100%
-    }
-
-    .tags-container {
-        flex-wrap: wrap;
     }
 }

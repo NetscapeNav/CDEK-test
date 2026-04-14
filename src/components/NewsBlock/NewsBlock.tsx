@@ -42,7 +42,6 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
                 <Skeleton/>
             ) : (
                 <div className={`news-list ${displayImages === 'first' ? 'business-list' : '' }`}>
-                    {isLoading ? "Загрузка" : ""}
                     {data?.news.length === 0 ? (
                         <div className="placeholder">
                             <img src={TrollImg} alt="Новостей пока нет"/>
@@ -50,7 +49,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
                         </div>
                     ) : (
                         data?.news.map((newsItem, index) => (
-                            <a href={"/news/" + newsItem.id} key={newsItem.id} className="news-link-wrapper">
+                            <a href={`/news/${newsItem.id}`} key={newsItem.id} className="news-link-wrapper">
                                 {displayImages === 'all'
                                     ? <CompanyNewsCard item={newsItem} index={index} />
                                     : <BusinessNewsCard item={newsItem} index={index} />
