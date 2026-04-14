@@ -4,22 +4,30 @@
     padding: 21px;
 }
 
+.placeholder {
+    text-align: center;
+}
+
 .news-header-title {
     color: black;
     font-size: 2em;
-    font-family: Inter;
-    font-weight: 700;
+    font-weight: 600;
     margin: 7px auto;
 }
 
 hr {
-    color: #E2E2E4;
+    border: 1px solid #E2E2E4;
 }
 
 .news-list {
     display: flex;
     flex-direction: column;
     gap: 21px;
+}
+
+.news-link-wrapper {
+    color: inherit;
+    text-decoration: none;
 }
 
 .buttons-container {

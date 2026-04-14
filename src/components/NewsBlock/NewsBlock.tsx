@@ -4,6 +4,7 @@ import Skeleton from "../Skeleton/Skeletons.tsx";
 import {useNews} from "../../hooks/useNews.ts";
 import {useState} from "react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import TrollImg from '../../assets/pictures/troll.svg';
 
 interface NewsBlockProps {
     title: string;
@@ -38,14 +39,19 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
             {error && <div className="error-message">Ошибка при загрузке новостей</div> }
             {isLoading ? (
                 <Skeleton/>
-            ): (
+            ) : (
                 <div className="news-list">
                     {isLoading ? "Загрузка" : ""}
                     {data?.news.length === 0 ? (
-                        <div className="placeholder">Новостей пока нет</div>
+                        <div className="placeholder">
+                            <img src={TrollImg} alt="Новостей пока нет"/>
+                            <p>Новостей пока нет</p>
+                        </div>
                     ) : (
                         data?.news.map((newsItem, index) => (
-                            <NewsCard key={newsItem.id} item={newsItem} displayImages={displayImages} index={index}/>
+                            <a href={"/news/" + newsItem.id} key={newsItem.id} className="news-link-wrapper">
+                                <NewsCard key={newsItem.id} item={newsItem} displayImages={displayImages} index={index}/>
+                            </a>
                         ))
                     )}
                 </div>
