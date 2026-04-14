@@ -1,75 +1,55 @@
-# ЗДЕСЬ НУЖНО ПИСАТЬ НОВЫЙ README
+# Тестовое задание CDEK
 
-# React + TypeScript + Vite
+Универсальный компонент новостного блока с поддержкой пагинации, адаптивности и различных состояний отображения (Новости компании, Бизнес, Пустое состояние).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Демонстрация
+**https://cdek-test.vercel.app/**
 
-Currently, two official plugins are available:
+## Инструкция по запуску
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Для запуска проекта локально на вашем компьютере:
 
-## React Compiler
+1. Склонируйте репозиторий:
+   ```bash
+   git clone https://github.com/NetscapeNav/CDEK-test.git
+    ```
+2. Перейдите в папку проекта:
+   ```bash
+    cd cdek-test
+   ```
+3. Установите зависимости:
+    ```bash
+    npm install
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Запустите сервер разработки:
+   ```bash
+    npm run dev
+   ```
 
-## Expanding the ESLint configuration
+5. Откройте приложение в браузере по адресу http://localhost:5173
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Краткое описание
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+В процессе разработки я сделал упор на чистоту кода, масштабируемость и пользовательский опыт (UX):
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Универсальный контейнер NewsBlock делегирует рендер карточкам CompanyNewsCard и BusinessNewsCard, что позволяет легко расширять функциональность под новые рубрики.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Работа с API и состояниями вынесена в кастомный хук useNews.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+При первичном монтировании используется Skeleton с жестко заданной высотой.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Общая логика и общие UI-элементы вынесены в отдельные утилиты и компоненты.
+
+
+## Дополнительный функционал
+Помимо основного функционала, мне удалось реализовать следующие требования:
+
+**Кэширование:** реализован кэш страниц в newsApi.ts. При возврате на ранее загруженные страницы данные берутся из Map, что исключает повторные сетевые запросы и мгновенно отрисовывает UI.
+
+**Типизация:** проект написан на TypeScript. Строго типизированы интерфейсы ответов API и пропсы всех компонентов.
+
+**Ленивая загрузка изображений:** всем обложкам новостей добавлен нативный атрибут loading="lazy" для оптимизации загрузки страницы.
+
+**UX:** кнопки переключения блокируются на время сетевого запроса, предотвращая двойные клики.
