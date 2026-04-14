@@ -18,7 +18,7 @@ function NewsBlock({title, mode, displayImages}: NewsBlockProps) {
 
     const date = new Date();
     const monthName = date.toLocaleDateString('ru-RU', { month: 'long' });
-    const formattedDate = monthName.charAt(0).toUpperCase() + monthName.slice(1) + ' ' + date.getFullYear();
+    const formattedDate = monthName.charAt(0).toUpperCase() + monthName.slice(1) + ', ' + date.getFullYear();
 
     const handleNext = () => {
         if (data && page < data.totalPages) {
